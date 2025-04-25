@@ -8,7 +8,7 @@ The study aims to:
 - Evaluate the statistical properties of log-returns.
 - Estimate volatility (both historical and GARCH-based).
 - Price At-The-Money (ATM) European Call and Put options.
-- Compare multiple option pricing methods.
+- Compare multiple option pricing methods, including a novel Hybrid LSTM-GARCH Monte Carlo model.
 
 ---
 
@@ -22,6 +22,8 @@ The study aims to:
 - scipy
 - statsmodels
 - arch
+- scikit-learn
+- tensorflow / keras
 - yfinance (for future improvements)
 
 ---
@@ -49,6 +51,9 @@ The study aims to:
 - **Black-Scholes Model** (adjusted for FX options)
 - **CRR Binomial Model**
 - **Monte Carlo Simulation**
+- **Hybrid LSTM-GARCH Monte Carlo:**
+- Simulated price paths using LSTM-GARCH volatility estimates.
+- Estimated expected payoff under risk-neutral framework.
 
 ### 6. Comparison
 - Compared Call and Put option prices from all three methods.
@@ -59,20 +64,21 @@ The study aims to:
 
 | Method          | Call Price | Put Price  |
 |-----------------|------------|------------|
-| Black-Scholes   | *value*     | *value*    |
-| CRR Binomial    | *value*     | *value*    |
-| Monte Carlo     | *value*     | *value*    |
+| Black-Scholes   | *3.948767*     | *4.227695*    |
+| CRR Binomial    | *3.946723*     | *4.225651*    |
+| Monte Carlo     | *3.947293*     | *4.246676*    |
+| Hybrid Model    | *2.4938*     | *5.0619*    |
 
 
-- Predicted volatility using GARCH provided dynamic insights beyond historical estimation.
+- The LSTM-GARCH Monte Carlo model demonstrated greater responsiveness to market volatility structure and non-linear dynamics.
 
 ---
 
 ## 🚀 Advanced Extensions (Optional)
 
-- Integration of Machine Learning models (Random Forest, XGBoost) for volatility forecasting.
-- LSTM-based deep learning models for future return prediction.
-- Real-time dynamic option pricing using updated data sources.
+- Add support for real-time dynamic option pricing using APIs.
+- Implement Reinforcement Learning for optimal hedging strategies.
+- Extend the LSTM-GARCH framework to multivariate FX modeling.
 
 ---
 
@@ -82,5 +88,6 @@ The study aims to:
 CAD_HUF_Project/
 ├── CAD_HUF_Historical_Data.csv
 ├── CAD_HUF_Analysis.ipynb
+├── LSTM_GARCH_Model.ipynb
 ├── README.md
 └── requirements.txt
